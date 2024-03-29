@@ -15,9 +15,9 @@
 		"test:e2e": "pnpm preview:test 'cypress open'",
 		"test:e2e:headless": "pnpm preview:test 'cypress run'",
 		"test:e2e:ci": "vite build && pnpm preview:test 'cypress run --record'",
-		"format": " biome format --write ./src",
+		"format": " biome format --write",
 		"run-tsc": "tsc",
-		"run-biome": "biome check --apply ./src",
+		"run-biome": "biome check --apply",
 		"run-stylelint": "stylelint --cache --fix --ignore-path .gitignore **/*.css",
 		"lint": "run-p run-tsc run-biome run-stylelint",
 		"validate": "run-p lint test:ci test:e2e:headless"

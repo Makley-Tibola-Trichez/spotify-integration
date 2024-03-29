@@ -1,0 +1,33 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.6.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"lineWidth": 120,
+		"enabled": true,
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"indentStyle": "tab"
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"nursery": {
+				"useSortedClasses": "error",
+				"noConsole": "warn",
+				"recommended": true
+			},
+			"complexity": {
+				"recommended": true
+			},
+			"performance": {
+				"recommended": true
+			},
+			"correctness": {
+				"recommended": true
+			}
+		}
+	}
+}

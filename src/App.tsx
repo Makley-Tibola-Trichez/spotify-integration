@@ -1,6 +1,16 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
-import { routes } from "./routes";
+import { threeRoutes } from "./routes";
 
 export default function App() {
-	return <RouterProvider router={routes} />;
+	const _queryClient = useQueryClient();
+
+	return (
+		<RouterProvider
+			router={threeRoutes(_queryClient)}
+			future={{
+				v7_startTransition: true,
+			}}
+		/>
+	);
 }

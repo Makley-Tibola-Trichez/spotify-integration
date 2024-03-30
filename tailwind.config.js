@@ -1,9 +1,14 @@
+const defaultConfig = require("tailwindcss/defaultConfig");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
 	content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
 	prefix: "",
 	theme: {
+		fontFamily: {
+			sans: ["Inter", ...defaultConfig.theme.fontFamily.sans],
+		},
 		container: {
 			center: true,
 			padding: "2rem",

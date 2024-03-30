@@ -1,27 +1,29 @@
-export interface ListUserPlaylistsResponse {
+export type ListArtistAlbumsResponse = {
 	href: string;
 	limit: number;
 	next: string;
 	offset: number;
 	previous: string;
 	total: number;
-	items: ItemListUserPLaylistsResponse[];
-}
+	items: ItemListArtistAlbumsResponse[];
+};
 
-export type ItemListUserPLaylistsResponse = {
-	collaborative: boolean;
-	description: string;
+export type ItemListArtistAlbumsResponse = {
+	album_type: string;
+	total_tracks: number;
+	available_markets: string[];
 	external_urls: _ExternalUrls;
 	href: string;
 	id: string;
 	images: _Image[];
 	name: string;
-	owner: _Owner;
-	public: boolean;
-	snapshot_id: string;
-	tracks: _Tracks;
+	release_date: string;
+	release_date_precision: string;
+	restrictions: _Restrictions;
 	type: string;
 	uri: string;
+	artists: _Artist[];
+	album_group: string;
 };
 
 type _Image = {
@@ -30,25 +32,19 @@ type _Image = {
 	width: number;
 };
 
-type _Owner = {
+type _Restrictions = {
+	reason: string;
+};
+
+type _Artist = {
 	external_urls: _ExternalUrls;
-	followers: _Followers;
 	href: string;
 	id: string;
+	name: string;
 	type: string;
 	uri: string;
-	display_name: string;
 };
 
 type _ExternalUrls = {
 	spotify: string;
-};
-type _Followers = {
-	href: string;
-	total: number;
-};
-
-type _Tracks = {
-	href: string;
-	total: number;
 };

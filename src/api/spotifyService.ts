@@ -2,9 +2,12 @@ import axios from "axios";
 import { base64encode } from "../utils/base64encode";
 import { generateRandomString } from "../utils/generateRandomString";
 import { sha256 } from "../utils/sha256";
+import type { CreatePlaylistBody } from "./types/createPlaylist.types";
 import type { GenerateAccessTokenResponse } from "./types/generateAcessToken.types";
 import type { GetUserAuthorizationParams } from "./types/getUserAuthorization.types";
+import type { ListArtistAlbumsResponse } from "./types/listArtistAlbums.types";
 import type { ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
+import type { ListUserTopArtistsResponse } from "./types/listUserTopArtists.types";
 
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -39,17 +42,20 @@ export const SpotifyService = {
 		location.href = spotifyAuthUrl.toString();
 	},
 
-	generateAccessToken(code: string, codeVerifier: string) {
-		return axiosSpotifyAccessToken.post<GenerateAccessTokenResponse>("", {
+	generateAccessToken: (code: string, codeVerifier: string) =>
+		axiosSpotifyAccessToken.post<GenerateAccessTokenResponse>("", {
 			client_id: SPOTIFY_CLIENT_ID,
 			grant_type: "authorization_code",
 			code,
 			redirect_uri: redirectURI,
 			code_verifier: codeVerifier,
-		});
-	},
+		}),
 
-	listUserPlaylists(params?: { limit: number; offset: number }) {
-		return axiosSpotifyV1.get<ListUserPlaylistsResponse>("/me/playlists", { params });
-	},
+	listUserPlaylists: (params?: { limit: number; offset: number }) =>
+		axiosSpotifyV1.get<ListUserPlaylistsResponse>("/me/playlists", { params }),
+
+	listUserTopItems: () => axiosSpotifyV1.get<ListUserTopArtistsResponse>("/me/top/artists"),
+	listArtistAlbums: (artistId: string) => axiosSpotifyV1.get<ListArtistAlbumsResponse>(`/artists/${artistId}/albums`),
+
+	createPlaylist: (userId: string, body: CreatePlaylistBody) => axiosSpotifyV1.post(`/users/${userId}/playlists`, body),
 };

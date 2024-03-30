@@ -4,6 +4,7 @@ import { generateRandomString } from "../utils/generateRandomString";
 import { sha256 } from "../utils/sha256";
 import type { CreatePlaylistBody } from "./types/createPlaylist.types";
 import type { GenerateAccessTokenResponse } from "./types/generateAcessToken.types";
+import type { GetArtistResponse } from "./types/getArtist.types";
 import type { GetUserAuthorizationParams } from "./types/getUserAuthorization.types";
 import type { ListArtistAlbumsResponse } from "./types/listArtistAlbums.types";
 import type { ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
@@ -32,7 +33,7 @@ export const SpotifyService = {
 		const params: GetUserAuthorizationParams = {
 			response_type: "code",
 			client_id: SPOTIFY_CLIENT_ID,
-			scope: "user-read-private user-read-email",
+			scope: "user-read-private user-read-email user-top-read",
 			code_challenge_method: "S256",
 			code_challenge: codeChallenge,
 			redirect_uri: redirectURI,
@@ -54,8 +55,9 @@ export const SpotifyService = {
 	listUserPlaylists: (params?: { limit: number; offset: number }) =>
 		axiosSpotifyV1.get<ListUserPlaylistsResponse>("/me/playlists", { params }),
 
-	listUserTopItems: () => axiosSpotifyV1.get<ListUserTopArtistsResponse>("/me/top/artists"),
+	listUserTopArtists: () => axiosSpotifyV1.get<ListUserTopArtistsResponse>("/me/top/artists"),
 	listArtistAlbums: (artistId: string) => axiosSpotifyV1.get<ListArtistAlbumsResponse>(`/artists/${artistId}/albums`),
+	getArtist: (artistID: string) => axiosSpotifyV1.get<GetArtistResponse>(`/artists/${artistID}`),
 
 	createPlaylist: (userId: string, body: CreatePlaylistBody) => axiosSpotifyV1.post(`/users/${userId}/playlists`, body),
 };

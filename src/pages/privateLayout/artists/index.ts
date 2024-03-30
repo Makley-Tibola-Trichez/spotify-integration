@@ -1,5 +1,7 @@
-import { ArtistsView } from "./artists.view";
+import { artistsLoader } from "./artists.loader";
+import { ArtistsViewModel } from "./artists.viewmodel";
 
 export const Artists = {
-	ViewModel: ArtistsView,
+	ViewModel: ArtistsViewModel,
+	loader: artistsLoader,
 } as const;

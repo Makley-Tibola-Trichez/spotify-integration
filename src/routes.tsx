@@ -2,6 +2,8 @@ import type { QueryClient } from "@tanstack/react-query";
 import { createBrowserRouter } from "react-router-dom";
 import { Login } from "./pages/login";
 import { PrivateLayout } from "./pages/privateLayout";
+import { Artist } from "./pages/privateLayout/artist";
+import { ArtistAlbums } from "./pages/privateLayout/artist/artistAlbums";
 import { Artists } from "./pages/privateLayout/artists";
 import { Home } from "./pages/privateLayout/home";
 import { Playlists } from "./pages/privateLayout/playlists";
@@ -19,20 +21,38 @@ export const threeRoutes = (queryClient: QueryClient) =>
 			Component: PrivateLayout.ViewModel,
 			children: [
 				{
-					path: "/home",
+					path: "home",
 					Component: Home.ViewModel,
 				},
 				{
-					path: "/playlists",
+					path: "playlists",
 					loader: Playlists.loader(queryClient),
 					Component: Playlists.ViewModel,
 				},
 				{
-					path: "/artists",
-					Component: Artists.ViewModel,
+					path: "artists",
+					children: [
+						{
+							index: true,
+							Component: Artists.ViewModel,
+							loader: Artists.loader(queryClient),
+						},
+						{
+							path: ":artistId",
+							Component: Artist.ViewModel,
+							loader: Artist.loader(queryClient),
+							children: [
+								{
+									path: "albums",
+									Component: ArtistAlbums.ViewModel,
+									loader: ArtistAlbums.loader(queryClient),
+								},
+							],
+						},
+					],
 				},
 				{
-					path: "/profile",
+					path: "profile",
 					Component: Profile.ViewModel,
 				},
 			],

@@ -8,7 +8,7 @@ export function PrivateLayoutView() {
 		<>
 			<div className="grid min-h-screen w-full lg:grid-cols-[250px_1fr] md:grid-cols-[220px_1fr]">
 				<div className="hidden bg-black md:block">
-					<div className="flex h-full max-h-screen flex-col gap-2">
+					<div className="flex h-full max-h-screen flex-col">
 						<div className="flex-1">
 							<div className="p-6 py-7">
 								<Link to="/" className="flex items-center gap-2 font-semibold">

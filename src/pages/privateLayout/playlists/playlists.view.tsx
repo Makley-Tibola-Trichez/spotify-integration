@@ -1,3 +1,4 @@
+import { ContentLayout } from "@/components/contentLayout/contentLayout";
 import { PageHeader } from "@/components/pageHeader";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
@@ -8,7 +9,7 @@ import type { usePlaylistsModel } from "./usePlaylists.model";
 
 export function PlaylistsView({ playlistsSuspenseQuery }: ReturnType<typeof usePlaylistsModel>) {
 	return (
-		<div className="m-8 flex flex-col gap-4 text-white">
+		<ContentLayout>
 			<PageHeader.Root>
 				<div>
 					<PageHeader.Title>Minhas Playlists</PageHeader.Title>
@@ -29,6 +30,6 @@ export function PlaylistsView({ playlistsSuspenseQuery }: ReturnType<typeof useP
 				</Dialog.Root>
 			</PageHeader.Root>
 			<div className="flex flex-col gap-4">{playlistsSuspenseQuery.data?.data.items.map(PlaylistItemView)}</div>
-		</div>
+		</ContentLayout>
 	);
 }

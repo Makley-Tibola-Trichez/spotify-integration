@@ -9,13 +9,8 @@
 	"files.exclude": {
 		"**/.stylelintcache": true,
 		"**/.eslintcache": true,
-		"**/.gitignore": true,
 		"**/.nyc_output": true,
-		"**/.vscode": true,
-		"**/dist": true,
-		"**/node_modules": true,
-		"**/yarn.lock": true,
-		"**/coverage": true
+		"**/node_modules": true
 	},
 	"files.watcherExclude": {
 		"**/dist": true

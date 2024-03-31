@@ -1,8 +1,11 @@
 
-# TODO:
+# TODO: Feats
 - [x] Criar tela do perfil do usuário
 - [ ] Criar tela home
 - [ ] Fazer envio das informações para criar playlist
+- [ ] Adicionar infinite scroll nas listagens
+
+# TODO: Docs
 - [ ] Adicionar instruções de como rodar o projeto
 - [ ] Adicionar instruções de como rodar os testes
 - [ ] Adicionar instruções de como fazer o deploy

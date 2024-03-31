@@ -6,7 +6,7 @@ import type { GenerateAccessTokenResponse } from "./types/generateAccessToken.ty
 import type { GetUserAuthorizationParams } from "./types/getUserAuthorization.types";
 
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = location.origin;
 
 const redirectURI = `${BASE_URL}/home`;
 const spotifyAuthUrl = new URL("https://accounts.spotify.com/authorize");

@@ -37,18 +37,28 @@ export default defineConfig(({ mode }) => ({
 					VitePWA({
 						registerType: "autoUpdate",
 						includeAssets: ["favicon.png", "robots.txt", "apple-touch-icon.png", "icons/*.svg", "fonts/*.woff2"],
+						devOptions: {
+							enabled: true,
+						},
 						manifest: {
-							theme_color: "#BD34FE",
+							theme_color: "#57b660",
+							background_color: "#090707",
+							orientation: "any",
+							display: "standalone",
+							lang: "pt-BR",
+							name: "Spotify",
+							short_name: "Spotify",
 							icons: [
 								{
-									src: "/android-chrome-192x192.png",
-									sizes: "192x192",
+									purpose: "maskable",
+									sizes: "512x512",
+									src: "icon512_maskable.png",
 									type: "image/png",
-									purpose: "any maskable",
 								},
 								{
-									src: "/android-chrome-512x512.png",
+									purpose: "any",
 									sizes: "512x512",
+									src: "icon512_rounded.png",
 									type: "image/png",
 								},
 							],

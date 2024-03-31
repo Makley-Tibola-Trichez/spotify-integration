@@ -1,3 +1,4 @@
+import { InstallPWA } from "@/components/installPWA/installPWA";
 import { SideBar } from "@/components/sideBar";
 import { DiscIcon, HomeIcon, PlayIcon, UserIcon } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
@@ -33,6 +34,9 @@ export function PrivateLayoutView() {
 									Perfil
 								</SideBar.Button>
 							</SideBar.Root>
+						</div>
+						<div className="p-6">
+							<InstallPWA />
 						</div>
 					</div>
 				</div>

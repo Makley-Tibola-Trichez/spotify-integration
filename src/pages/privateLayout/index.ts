@@ -1,7 +1,5 @@
-import { privateLayoutLoader } from "./privateLayout.loader";
-import { PrivateLayoutView } from "./privateLayout.view";
+import { PrivateLayoutViewModel } from "./privateLayout.viewmodel";
 
 export const PrivateLayout = {
-	ViewModel: PrivateLayoutView,
-	loader: privateLayoutLoader,
+	ViewModel: PrivateLayoutViewModel,
 } as const;

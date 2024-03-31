@@ -13,11 +13,11 @@ export const threeRoutes = (queryClient: QueryClient) =>
 	createBrowserRouter([
 		{
 			path: "/",
-			loader: Login.loader,
+			// loader: Login.loader,
 			Component: Login.ViewModel,
 		},
 		{
-			loader: PrivateLayout.loader,
+			// loader: PrivateLayout.loader,
 			Component: PrivateLayout.ViewModel,
 			children: [
 				{

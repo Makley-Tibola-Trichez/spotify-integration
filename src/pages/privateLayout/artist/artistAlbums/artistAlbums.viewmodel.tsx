@@ -3,9 +3,9 @@ import { Suspense } from "react";
 import { Await } from "react-router-dom";
 import { ArtistAlbumsSkeleton } from "./artistAlbums.skeleton";
 import type { ArtistAlbumsLoader } from "./artistAlbums.types";
-import { ArtistAlbumsView } from "./artustAlbumns.view";
+import { ArtistAlbumsView } from "./artistAlbums.view";
 
-export function ArtistAlbumnsViewModel() {
+export function ArtistAlbumsViewModel() {
 	const { artistAlbumsQuery } = useTypedLoaderData<ArtistAlbumsLoader>();
 
 	return (

@@ -1,0 +1,35 @@
+import { SpotifyAuthService } from "@/api/spotifyAuthService";
+import { axiosSpotifyV1 } from "@/api/spotifyService";
+import { updateAuthTokens } from "@/utils/updateAuthTokens";
+import { useQuery } from "@tanstack/react-query";
+import Cookie from "js-cookie";
+import { Navigate } from "react-router-dom";
+
+export function withAuthInPublicRoute(Component: React.FC): React.FC {
+	const accessToken = Cookie.get("accessToken");
+	const refreshToken = Cookie.get("refreshToken");
+
+	if (accessToken) {
+		axiosSpotifyV1.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+
+		return () => <Navigate to="/home" />;
+	}
+
+	if (refreshToken) {
+		return () => {
+			useQuery({
+				queryKey: ["refreshToken", refreshToken],
+				async queryFn() {
+					const response = await SpotifyAuthService.refreshToken(refreshToken);
+
+					updateAuthTokens(response.data);
+					return response;
+				},
+				staleTime: 0,
+			});
+
+			return <Navigate to="/" />;
+		};
+	}
+	return () => <Component />;
+}

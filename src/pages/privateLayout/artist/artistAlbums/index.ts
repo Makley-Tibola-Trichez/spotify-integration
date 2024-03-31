@@ -1,7 +1,7 @@
 import { artistAlbumsLoader } from "./artistAlbums.loader";
-import { ArtistAlbumnsViewModel } from "./artistAlbums.viewmodel";
+import { ArtistAlbumsViewModel } from "./artistAlbums.viewmodel";
 
 export const ArtistAlbums = {
-	ViewModel: ArtistAlbumnsViewModel,
+	ViewModel: ArtistAlbumsViewModel,
 	loader: artistAlbumsLoader,
 } as const;

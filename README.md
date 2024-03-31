@@ -1,4 +1,13 @@
 
+# TODO:
+- [x] Criar tela do perfil do usuário
+- [ ] Criar tela home
+- [ ] Fazer envio das informações para criar playlist
+- [ ] Adicionar instruções de como rodar o projeto
+- [ ] Adicionar instruções de como rodar os testes
+- [ ] Adicionar instruções de como fazer o deploy
+- [ ] Adicionar instruções de como acessar a aplicação
+
 # Requisitos
 ## Requisitos obrigatórios
 - [x] Seguimentação de commits
@@ -7,7 +16,7 @@
 - [x] Listar artistas
 - [x] Listar albuns de um artista
 - [ ] Utilizar paginação (scroll infinito ou não)
-- [ ] Funcionamento offline
+- [x] Funcionamento offline
 - [ ] Testes unitários
 - [x] Deploy da aplicação
 

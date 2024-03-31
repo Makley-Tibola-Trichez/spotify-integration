@@ -41,7 +41,7 @@ export default defineConfig(({ mode }) => ({
 						includeAssets: ["**/*"],
 						workbox: { globPatterns: ["**/*"] },
 						devOptions: {
-							enabled: true,
+							enabled: false,
 						},
 						manifest: {
 							theme_color: "#57b660",

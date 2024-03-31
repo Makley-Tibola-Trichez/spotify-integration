@@ -54,6 +54,7 @@ export const threeRoutes = (queryClient: QueryClient) =>
 				{
 					path: "profile",
 					Component: Profile.ViewModel,
+					loader: Profile.loader(queryClient),
 				},
 			],
 		},

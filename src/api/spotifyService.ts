@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { CreatePlaylistBody } from "./types/createPlaylist.types";
 import type { GetArtistResponse } from "./types/getArtist.types";
+import type { GetUserProfileResponse } from "./types/getUserProfile.types";
 import type { ListArtistAlbumsResponse } from "./types/listArtistAlbums.types";
 import type { ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
 import type { ListUserTopArtistsResponse } from "./types/listUserTopArtists.types";
@@ -17,4 +18,6 @@ export const SpotifyService = {
 	getArtist: (artistID: string) => axiosSpotifyV1.get<GetArtistResponse>(`/artists/${artistID}`),
 
 	createPlaylist: (userId: string, body: CreatePlaylistBody) => axiosSpotifyV1.post(`/users/${userId}/playlists`, body),
+
+	getUserProfile: () => axiosSpotifyV1.get<GetUserProfileResponse>("/me"),
 };

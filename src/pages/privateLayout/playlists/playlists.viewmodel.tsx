@@ -1,11 +1,21 @@
+import { useTypedLoaderData } from "@/hooks/useTypedLoaderData";
 import { Suspense } from "react";
+import { Await } from "react-router-dom";
+import { PlaylistsSkeleton } from "./playlists.skeleton";
+import type { PromisePlaylistsLoader } from "./playlists.types";
 import { PlaylistsView } from "./playlists.view";
 import { usePlaylistsModel } from "./usePlaylists.model";
 
 export function PlaylistsViewModel() {
+	const { playlistsQuery } = useTypedLoaderData<PromisePlaylistsLoader>();
+
 	return (
-		<Suspense fallback={<div />}>
-			<PlaylistsView {...usePlaylistsModel()} />
+		<Suspense fallback={<PlaylistsSkeleton />}>
+			<Await resolve={playlistsQuery}>
+				{(playlistsQueryResolved) => (
+					<PlaylistsView {...usePlaylistsModel({ playlistsQuery: playlistsQueryResolved })} />
+				)}
+			</Await>
 		</Suspense>
 	);
 }

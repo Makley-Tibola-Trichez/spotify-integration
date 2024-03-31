@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { PlaylistItemView } from "./playlistItem/playlistItem.view";
 import type { usePlaylistsModel } from "./usePlaylists.model";
 
-export function PlaylistsView({ playlistsSuspenseQuery }: ReturnType<typeof usePlaylistsModel>) {
+export function PlaylistsView({ playlistsQuery }: ReturnType<typeof usePlaylistsModel>) {
 	return (
 		<ContentLayout>
 			<PageHeader.Root>
@@ -29,7 +29,7 @@ export function PlaylistsView({ playlistsSuspenseQuery }: ReturnType<typeof useP
 					</Dialog.Content>
 				</Dialog.Root>
 			</PageHeader.Root>
-			<div className="flex flex-col gap-4">{playlistsSuspenseQuery.data?.data.items.map(PlaylistItemView)}</div>
+			<div className="flex flex-col gap-4">{playlistsQuery.data?.items.map(PlaylistItemView)}</div>
 		</ContentLayout>
 	);
 }

@@ -1,13 +1,15 @@
 import { SpotifyService } from "@/api/spotifyService";
 import { withLoader } from "@/hofs/withLoader";
-import { type LoaderFunction, redirect } from "react-router-dom";
+import { defer } from "react-router-dom";
+import type { PromisePlaylistsLoader } from "./playlists.types";
 
 export const playlistsLoader = withLoader((_, queryClient) => {
-	// queryClient.prefetchQuery({
-	// 	queryKey: ["playlists"],
-	// 	queryFn: () => SpotifyService.listUserPlaylists(),
-	// 	staleTime: 1000 * 60 * 60,
-	// 	gcTime: 1000 * 60 * 60,
-	// });
-	return null;
+	const playlistsLoader: PromisePlaylistsLoader = {
+		playlistsQuery: queryClient.fetchQuery({
+			queryKey: ["playlists"],
+			queryFn: () => SpotifyService.listUserPlaylists(),
+		}),
+	};
+
+	return defer(playlistsLoader);
 });

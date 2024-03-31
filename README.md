@@ -9,7 +9,7 @@
 - [ ] Utilizar paginação (scroll infinito ou não)
 - [ ] Funcionamento offline
 - [ ] Testes unitários
-- [ ] Deploy da aplicação
+- [x] Deploy da aplicação
 
 ## Bônus
 - [ ] Testes E2E
@@ -17,4 +17,4 @@
 - [ ] CI/CD
 - [ ] Responsividade (celular e tablet)
 - [ ] Qualidade de código (Sonarqube)
-- [ ] PWA
+- [x] PWA

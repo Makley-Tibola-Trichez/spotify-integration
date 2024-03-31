@@ -36,7 +36,10 @@ export default defineConfig(({ mode }) => ({
 			: [
 					VitePWA({
 						registerType: "autoUpdate",
-						includeAssets: ["favicon.png", "robots.txt", "apple-touch-icon.png", "icons/*.svg", "fonts/*.woff2"],
+						// add this to cache all the
+						// static assets in the public folder
+						includeAssets: ["**/*"],
+						workbox: { globPatterns: ["**/*"] },
 						devOptions: {
 							enabled: true,
 						},

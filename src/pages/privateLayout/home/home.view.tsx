@@ -1,5 +1,5 @@
 import type useHomeModel from "./useHome.model";
 
 export default function HomeView(props: ReturnType<typeof useHomeModel>) {
-	return <span className="text-white">{props.code?.toString()}</span>;
+	return <span className="text-white" />;
 }

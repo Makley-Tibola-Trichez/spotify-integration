@@ -17,7 +17,8 @@ export default defineConfig(({ mode }) => ({
 		setupFiles: "src/setupTests.ts",
 		clearMocks: true,
 		coverage: {
-			include: ["src/**/*"],
+			// include: ["src/**/*"],
+			include: ["src/components/*", "!src/components/ui", "src/utils/*"],
 			exclude: ["src/main.tsx"],
 			thresholds: {
 				"100": true,

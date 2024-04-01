@@ -1,15 +1,15 @@
 import { SpotifyAuthService } from "@/api/spotifyAuthService";
 import { axiosSpotifyV1 } from "@/api/spotifyService";
 import { useQuery } from "@tanstack/react-query";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 import { updateAuthTokens } from "../utils/updateAuthTokens";
 
 export const withAuthInPrivateRoute = (Component: React.FC): React.FC => {
 	const authCode = new URLSearchParams(location.search.split("?")[1]).get("code");
 	const codeVerifier = localStorage.getItem("codeVerifier");
-	const accessToken = Cookie.get("accessToken");
-	const refreshToken = Cookie.get("refreshToken");
+	const accessToken = Cookies.get("accessToken");
+	const refreshToken = Cookies.get("refreshToken");
 
 	if (authCode && codeVerifier) {
 		return () => {

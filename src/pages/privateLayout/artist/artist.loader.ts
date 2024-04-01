@@ -14,7 +14,6 @@ export const artistLoader = withLoader(async ({ params }, queryClient) => {
 		artistQuery: queryClient.fetchQuery({
 			queryKey: ["artist", artistId],
 			queryFn: () => SpotifyService.getArtist(artistId),
-			staleTime: Number.POSITIVE_INFINITY,
 		}),
 	};
 

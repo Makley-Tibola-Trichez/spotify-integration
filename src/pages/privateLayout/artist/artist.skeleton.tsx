@@ -12,9 +12,7 @@ export function ArtistSkeleton() {
 				</span>
 				<Skeleton className="h-[72px] w-[72px] rounded-full bg-cover object-cover" />
 			</div>
-			<div className="grid gap-x-2 gap-y-4 lg:grid-cols-3 md:grid-cols-2">
-				<Outlet />
-			</div>
+			<Outlet />
 		</ContentLayout>
 	);
 }

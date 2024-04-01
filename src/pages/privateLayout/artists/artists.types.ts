@@ -1,10 +1,6 @@
 import type { ListUserTopArtistsResponse } from "@/api/types/listUserTopArtists.types";
-import type { InfiniteData } from "@tanstack/react-query";
-import type { AxiosResponse } from "axios";
+import type { InfiniteLoader, PromiseInfiniteLoader } from "@/types/loader";
 
-export type ArtistsLoader = {
-	artistsQuery: InfiniteData<AxiosResponse<ListUserTopArtistsResponse>>;
-};
-export type PromiseArtistsLoader = {
-	artistsQuery: Promise<ArtistsLoader["artistsQuery"]>;
-};
+export type ArtistsLoader = InfiniteLoader<"artistsQuery", ListUserTopArtistsResponse>;
+
+export type PromiseArtistsLoader = PromiseInfiniteLoader<ArtistsLoader>;

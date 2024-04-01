@@ -1,4 +1,4 @@
-import type { _ExternalUrls, _Image, _Restrictions } from "./spotifyService.types";
+import type { SpotifyListParams, _ExternalUrls, _Image, _Restrictions } from "./spotifyService.types";
 
 export type ListArtistAlbumsResponse = {
 	href: string;
@@ -36,3 +36,5 @@ type _Artist = {
 	type: string;
 	uri: string;
 };
+
+export type ListArtistAlbumsParams = SpotifyListParams;

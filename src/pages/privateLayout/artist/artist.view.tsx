@@ -20,9 +20,7 @@ export function ArtistView(props: ReturnType<typeof useArtistModel>) {
 					alt={props.artistQuery.data?.name}
 				/>
 			</div>
-			<div className="grid gap-x-2 gap-y-4 lg:grid-cols-3 md:grid-cols-2">
-				<Outlet />
-			</div>
+			<Outlet />
 		</ContentLayout>
 	);
 }

@@ -1,9 +1,6 @@
 import type { ListArtistAlbumsResponse } from "@/api/types/listArtistAlbums.types";
-import type { AxiosResponse } from "axios";
+import type { InfiniteLoader, PromiseInfiniteLoader } from "@/types/loader";
 
-export type ArtistAlbumsLoader = {
-	artistAlbumsQuery: AxiosResponse<ListArtistAlbumsResponse>;
-};
-export type PromiseArtistAlbumsLoader = {
-	artistAlbumsQuery: Promise<ArtistAlbumsLoader["artistAlbumsQuery"]>;
-};
+export type ArtistAlbumsLoader = InfiniteLoader<"artistAlbumsQuery", ListArtistAlbumsResponse>;
+
+export type PromiseArtistAlbumsLoader = PromiseInfiniteLoader<ArtistAlbumsLoader>;

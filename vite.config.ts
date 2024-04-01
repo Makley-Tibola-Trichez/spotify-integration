@@ -47,6 +47,7 @@ export default defineConfig(({ mode }) => ({
 						manifest: {
 							theme_color: "#57b660",
 							background_color: "#090707",
+							description: "Veja os álbuns de seus artistas favoritos",
 							orientation: "any",
 							display: "standalone",
 							lang: "pt-BR",

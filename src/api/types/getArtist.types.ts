@@ -1,3 +1,5 @@
+import type { _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
+
 export type GetArtistResponse = {
 	external_urls: _ExternalUrls;
 	followers: _Followers;
@@ -9,19 +11,4 @@ export type GetArtistResponse = {
 	popularity: number;
 	type: string;
 	uri: string;
-};
-
-type _ExternalUrls = {
-	spotify: string;
-};
-
-type _Followers = {
-	href: string;
-	total: number;
-};
-
-type _Image = {
-	url: string;
-	height: number;
-	width: number;
 };

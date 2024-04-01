@@ -1,3 +1,5 @@
+import type { _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
+
 export interface ListUserPlaylistsResponse {
 	href: string;
 	limit: number;
@@ -24,12 +26,6 @@ export type ItemListUserPLaylistsResponse = {
 	uri: string;
 };
 
-type _Image = {
-	url: string;
-	height: number;
-	width: number;
-};
-
 type _Owner = {
 	external_urls: _ExternalUrls;
 	followers: _Followers;
@@ -38,14 +34,6 @@ type _Owner = {
 	type: string;
 	uri: string;
 	display_name: string;
-};
-
-type _ExternalUrls = {
-	spotify: string;
-};
-type _Followers = {
-	href: string;
-	total: number;
 };
 
 type _Tracks = {

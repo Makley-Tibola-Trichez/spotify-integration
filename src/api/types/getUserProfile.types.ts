@@ -1,3 +1,5 @@
+import type { _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
+
 export type GetUserProfileResponse = {
 	country: string;
 	display_name: string;
@@ -16,19 +18,4 @@ export type GetUserProfileResponse = {
 type _ExplicitContent = {
 	filter_enabled: boolean;
 	filter_locked: boolean;
-};
-
-type _ExternalUrls = {
-	spotify: string;
-};
-
-type _Followers = {
-	href: string;
-	total: number;
-};
-
-type _Image = {
-	url: string;
-	height: number;
-	width: number;
 };

@@ -1,3 +1,5 @@
+import type { _ExternalUrls, _Image, _Restrictions } from "./spotifyService.types";
+
 export type ListArtistAlbumsResponse = {
 	href: string;
 	limit: number;
@@ -26,16 +28,6 @@ export type ItemListArtistAlbumsResponse = {
 	album_group: string;
 };
 
-type _Image = {
-	url: string;
-	height: number;
-	width: number;
-};
-
-type _Restrictions = {
-	reason: string;
-};
-
 type _Artist = {
 	external_urls: _ExternalUrls;
 	href: string;
@@ -43,8 +35,4 @@ type _Artist = {
 	name: string;
 	type: string;
 	uri: string;
-};
-
-type _ExternalUrls = {
-	spotify: string;
 };

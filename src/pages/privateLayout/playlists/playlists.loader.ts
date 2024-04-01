@@ -1,13 +1,16 @@
 import { SpotifyService } from "@/api/spotifyService";
 import { withLoader } from "@/hofs/withLoader";
+import { getNextPageParam } from "@/utils/getNextPageParam";
 import { defer } from "react-router-dom";
 import type { PromisePlaylistsLoader } from "./playlists.types";
 
 export const playlistsLoader = withLoader((_, queryClient) => {
 	const playlistsLoader: PromisePlaylistsLoader = {
-		playlistsQuery: queryClient.fetchQuery({
+		playlistsQuery: queryClient.fetchInfiniteQuery({
 			queryKey: ["playlists"],
-			queryFn: () => SpotifyService.listUserPlaylists(),
+			initialPageParam: 0,
+			getNextPageParam,
+			queryFn: ({ pageParam }) => SpotifyService.listUserPlaylists({ offset: pageParam }),
 		}),
 	};
 

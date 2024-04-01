@@ -3,13 +3,14 @@ import type { CreatePlaylistBody } from "./types/createPlaylist.types";
 import type { GetArtistResponse } from "./types/getArtist.types";
 import type { GetUserProfileResponse } from "./types/getUserProfile.types";
 import type { ListArtistAlbumsParams, ListArtistAlbumsResponse } from "./types/listArtistAlbums.types";
-import type { ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
+import type { ListUserPlaylistsParams, ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
 import type { ListUserTopArtistsParams, ListUserTopArtistsResponse } from "./types/listUserTopArtists.types";
 
 export const axiosSpotifyV1 = axios.create({ baseURL: "https://api.spotify.com/v1" });
 
 export const SpotifyService = {
-	listUserPlaylists: () => axiosSpotifyV1.get<ListUserPlaylistsResponse>("/me/playlists"),
+	listUserPlaylists: (params: ListUserPlaylistsParams) =>
+		axiosSpotifyV1.get<ListUserPlaylistsResponse>("/me/playlists", { params }),
 
 	listUserTopArtists: (params?: ListUserTopArtistsParams) =>
 		axiosSpotifyV1.get<ListUserTopArtistsResponse>("/me/top/artists", { params }),

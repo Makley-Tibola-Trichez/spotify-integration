@@ -1,10 +1,6 @@
 import type { ListUserPlaylistsResponse } from "@/api/types/listUserPlaylists.types";
-import type { AxiosResponse } from "axios";
+import type { InfiniteLoader, PromiseInfiniteLoader } from "@/types/loader";
 
-export type PlaylistsLoader = {
-	playlistsQuery: AxiosResponse<ListUserPlaylistsResponse>;
-};
+export type PlaylistsLoader = InfiniteLoader<"playlistsQuery", ListUserPlaylistsResponse>;
 
-export type PromisePlaylistsLoader = {
-	playlistsQuery: Promise<AxiosResponse<ListUserPlaylistsResponse>>;
-};
+export type PromisePlaylistsLoader = PromiseInfiniteLoader<PlaylistsLoader>;

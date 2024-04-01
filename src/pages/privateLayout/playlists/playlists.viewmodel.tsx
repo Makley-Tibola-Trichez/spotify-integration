@@ -11,11 +11,7 @@ export function PlaylistsViewModel() {
 
 	return (
 		<Suspense fallback={<PlaylistsSkeleton />}>
-			<Await resolve={playlistsQuery}>
-				{(playlistsQueryResolved) => (
-					<PlaylistsView {...usePlaylistsModel({ playlistsQuery: playlistsQueryResolved })} />
-				)}
-			</Await>
+			<Await resolve={playlistsQuery}>{() => <PlaylistsView {...usePlaylistsModel()} />}</Await>
 		</Suspense>
 	);
 }

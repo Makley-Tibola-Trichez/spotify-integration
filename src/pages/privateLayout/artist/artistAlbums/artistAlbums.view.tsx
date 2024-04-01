@@ -14,8 +14,8 @@ export function ArtistAlbumsView({
 			<ul className="grid gap-x-2 gap-y-4 lg:grid-cols-2">
 				<NoResults
 					visible={artistAlbumsItems.length === 0}
-					title="Nenhum artista encontrado!"
-					description="Parece que você não possui artistas pra serem exibidos"
+					title="Nenhum album encontrado!"
+					description="Parece que esse artista ainda não lançou nenhum album."
 				/>
 				{artistAlbumsItems.map((i, idx) => (
 					<ArtistAlbumItemView

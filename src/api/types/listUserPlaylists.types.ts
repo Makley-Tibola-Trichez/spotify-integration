@@ -1,6 +1,6 @@
-import type { _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
+import type { SpotifyListParams, _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
 
-export interface ListUserPlaylistsResponse {
+export type ListUserPlaylistsResponse = {
 	href: string;
 	limit: number;
 	next: string;
@@ -8,7 +8,7 @@ export interface ListUserPlaylistsResponse {
 	previous: string;
 	total: number;
 	items: ItemListUserPLaylistsResponse[];
-}
+};
 
 export type ItemListUserPLaylistsResponse = {
 	collaborative: boolean;
@@ -16,7 +16,7 @@ export type ItemListUserPLaylistsResponse = {
 	external_urls: _ExternalUrls;
 	href: string;
 	id: string;
-	images: _Image[];
+	images: _Image[] | null;
 	name: string;
 	owner: _Owner;
 	public: boolean;
@@ -40,3 +40,5 @@ type _Tracks = {
 	href: string;
 	total: number;
 };
+
+export type ListUserPlaylistsParams = SpotifyListParams;

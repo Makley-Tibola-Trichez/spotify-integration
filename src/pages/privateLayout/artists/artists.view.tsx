@@ -1,10 +1,16 @@
 import { ContentLayout } from "@/components/contentLayout/contentLayout";
+import { NoResults } from "@/components/noResults/noResults";
 import { PageHeader } from "@/components/pageHeader";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArtistItemViewModel } from "./artistItem/artistItem.viewmodel";
+import { ArtistsItemsSkeleton } from "./artists.skeleton";
 import type { useArtistsModel } from "./useArtists.model";
 
-export function ArtistsView({ artistsQuery }: ReturnType<typeof useArtistsModel>) {
+export function ArtistsView({
+	artistsItems,
+	artistsInfiniteQuery,
+	bottomElementRef,
+}: ReturnType<typeof useArtistsModel>) {
 	return (
 		<ContentLayout>
 			<PageHeader.Root>
@@ -14,11 +20,22 @@ export function ArtistsView({ artistsQuery }: ReturnType<typeof useArtistsModel>
 				</div>
 			</PageHeader.Root>
 			<ScrollArea className="max-h-[calc(100dvh-12rem)]">
-				{/* {artistsQuery.isFetching ? <ArtistSkeleton /> : null} */}
-				<ul className="grid gap-x-2 gap-y-2 lg:grid-cols-3 sm:grid-cols-2">
-					{artistsQuery?.data?.items.map((i) => (
-						<ArtistItemViewModel key={i.name} {...i} />
+				<ul className="grid gap-x-2 gap-y-2 lg:grid-cols-2">
+					<NoResults
+						visible={artistsItems.length === 0}
+						title="Nenhum artista encontrado!"
+						description="Parece que você não possui artistas pra serem exibidos"
+					/>
+
+					{artistsItems.map((item, idx) => (
+						<ArtistItemViewModel
+							{...item}
+							key={item.name}
+							ref={idx + 1 === artistsItems.length ? bottomElementRef : undefined}
+						/>
 					))}
+
+					<ArtistsItemsSkeleton visible={artistsInfiniteQuery.isFetching} />
 				</ul>
 			</ScrollArea>
 		</ContentLayout>

@@ -11,9 +11,7 @@ export function ArtistsViewModel() {
 
 	return (
 		<Suspense fallback={<ArtistsSkeleton />}>
-			<Await resolve={artistsQuery}>
-				{(artistsQuerysResolved) => <ArtistsView {...useArtistsModel({ artistsQuery: artistsQuerysResolved })} />}
-			</Await>
+			<Await resolve={artistsQuery}>{() => <ArtistsView {...useArtistsModel()} />}</Await>
 		</Suspense>
 	);
 }

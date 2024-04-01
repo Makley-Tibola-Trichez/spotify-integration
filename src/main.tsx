@@ -26,11 +26,13 @@ const localStoragePersister = createSyncStoragePersister({
 	storage: window.localStorage,
 });
 
-persistQueryClient({
-	queryClient: queryClient,
-	maxAge: 1000 * 60 * 60 * 24,
-	persister: localStoragePersister,
-});
+if (import.meta.env.MODE !== "development") {
+	persistQueryClient({
+		queryClient: queryClient,
+		maxAge: 1000 * 60 * 60 * 24,
+		persister: localStoragePersister,
+	});
+}
 
 const container = document.querySelector("#root");
 if (container) {

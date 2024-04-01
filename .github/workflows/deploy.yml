@@ -1,32 +1,48 @@
-name: Spotify Integration Deploy
+name: Spotify Integration CI/CD
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 on:
   push:
-    branches:
-      - production
+    branches: [production]
+    
+  workflow_dispatch:
+    branches: [production]
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build_deploy:
+  Test:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'pnpm'
 
-      - name: Node Global Installs
-        run: npm install -g pnpm ; npm install -g vercel
-        
-      - name: Install Dependencies
-        run: pnpm install
+      - name: ♻️ Install dependencies
+        run: pnpm i && pnpm cypress install
 
-      - name: Build
-        run: pnpm build
+      - name: 📇Validate
+        run: pnpm run-p lint test:ci
 
-      - name: Deploy
-        run: npx vercel --prod
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          
-  
+      - name: ♾️ Unitary tests
+        run: pnpm run test:ci
+
+      - name: ♻️ Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: ⚓ Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 📦 Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 🚀 Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}

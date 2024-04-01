@@ -91,7 +91,7 @@
 		"development": ["last 1 chrome version", "last 1 firefox version"]
 	},
 	"lint-staged": {
-		"*": "biome format --write",
+		"*": "biome format --write .",
 		"*.css": "stylelint --cache --fix",
 		"*.{ts,tsx}": ["biome check --apply", "vitest related --run --coverage=false"]
 	},

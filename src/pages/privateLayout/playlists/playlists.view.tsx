@@ -1,10 +1,6 @@
 import { ContentLayout } from "@/components/contentLayout/contentLayout";
 import { NoResults } from "@/components/noResults/noResults";
 import { PageHeader } from "@/components/pageHeader";
-import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PlaylistItemView } from "./playlistItem/playlistItem.view";
 import { PlaylistsItemsSkeleton } from "./playlists.skeleton";
@@ -14,6 +10,7 @@ export function PlaylistsView({
 	playlistsItems,
 	bottomElementRef,
 	playlistsInfiniteQuery,
+	handleCriarPlaylist,
 }: ReturnType<typeof usePlaylistsModel>) {
 	return (
 		<ContentLayout>
@@ -22,19 +19,7 @@ export function PlaylistsView({
 					<PageHeader.Title>Minhas Playlists</PageHeader.Title>
 					<PageHeader.Description>Sua coleção pessoal de playlists</PageHeader.Description>
 				</div>
-				<Dialog.Root>
-					<Dialog.Trigger>
-						<PageHeader.ActionButton>Criar playlist</PageHeader.ActionButton>
-					</Dialog.Trigger>
-					<Dialog.Content>
-						<Dialog.Title>Nova playlist</Dialog.Title>
-						<Label htmlFor="playlistName">Dê um nome a sua playlist</Label>
-						<Input id="playlistName" />
-						<div className="flex justify-center">
-							<Button className="w-28">Salvar</Button>
-						</div>
-					</Dialog.Content>
-				</Dialog.Root>
+				<PageHeader.ActionButton onClick={handleCriarPlaylist}>Criar playlist</PageHeader.ActionButton>
 			</PageHeader.Root>
 			<ScrollArea className="max-h-[calc(100dvh-12rem)]">
 				<ul className="flex flex-col gap-4">

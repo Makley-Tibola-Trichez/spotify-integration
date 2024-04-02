@@ -17,8 +17,8 @@
 		"test:e2e:ci": "vite build && pnpm preview:test 'cypress run --record'",
 		"format": "biome format --write .",
 		"run-tsc": "tsc",
-		"run-biome": "biome check .",
-		"lint:ci": "run-tsc run-biome",
+		"run-biome": "biome check ./src",
+		"lint:ci": "run-p run-tsc run-biome",
 		"lint:fix": "biome check --apply ."
 	},
 	"dependencies": {

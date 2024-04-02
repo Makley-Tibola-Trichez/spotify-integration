@@ -30,7 +30,7 @@ export const PlaylistsSkeleton = () => {
 					<PageHeader.Description>Sua coleção pessoal de playlists</PageHeader.Description>
 				</div>
 				<div>
-					<Button className="w-28">Salvar</Button>
+					<Skeleton className="h-10 w-48 rounded-3xl" />
 				</div>
 			</PageHeader.Root>
 			<div className="flex flex-col gap-4">

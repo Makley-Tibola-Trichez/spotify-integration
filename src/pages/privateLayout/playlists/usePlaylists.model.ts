@@ -3,6 +3,7 @@ import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import { getNextPageParam } from "@/utils/getNextPageParam";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function usePlaylistsModel() {
 	const playlistsInfiniteQuery = useInfiniteQuery({
@@ -22,5 +23,9 @@ export function usePlaylistsModel() {
 		isFetching: playlistsInfiniteQuery.isFetchingNextPage,
 	});
 
-	return { playlistsInfiniteQuery, playlistsItems, bottomElementRef };
+	const _navigate = useNavigate();
+
+	const handleCriarPlaylist = () => _navigate("./criar-playlist");
+
+	return { playlistsInfiniteQuery, playlistsItems, bottomElementRef, handleCriarPlaylist };
 }

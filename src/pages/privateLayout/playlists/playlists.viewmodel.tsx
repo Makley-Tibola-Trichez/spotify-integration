@@ -1,6 +1,6 @@
 import { useTypedLoaderData } from "@/hooks/useTypedLoaderData";
 import { Suspense } from "react";
-import { Await } from "react-router-dom";
+import { Await, Outlet } from "react-router-dom";
 import { PlaylistsSkeleton } from "./playlists.skeleton";
 import type { PromisePlaylistsLoader } from "./playlists.types";
 import { PlaylistsView } from "./playlists.view";
@@ -12,6 +12,7 @@ export function PlaylistsViewModel() {
 	return (
 		<Suspense fallback={<PlaylistsSkeleton />}>
 			<Await resolve={playlistsQuery}>{() => <PlaylistsView {...usePlaylistsModel()} />}</Await>
+			<Outlet />
 		</Suspense>
 	);
 }

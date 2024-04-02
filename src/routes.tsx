@@ -7,17 +7,16 @@ import { ArtistAlbums } from "./pages/privateLayout/artist/artistAlbums";
 import { Artists } from "./pages/privateLayout/artists";
 import { Home } from "./pages/privateLayout/home";
 import { Playlists } from "./pages/privateLayout/playlists";
+import { NewPlaylist } from "./pages/privateLayout/playlists/newPlaylist";
 import { Profile } from "./pages/privateLayout/profile";
 
 export const threeRoutes = (queryClient: QueryClient) =>
 	createBrowserRouter([
 		{
 			path: "/",
-			// loader: Login.loader,
 			Component: Login.ViewModel,
 		},
 		{
-			// loader: PrivateLayout.loader,
 			Component: PrivateLayout.ViewModel,
 			children: [
 				{
@@ -28,6 +27,12 @@ export const threeRoutes = (queryClient: QueryClient) =>
 					path: "playlists",
 					loader: Playlists.loader(queryClient),
 					Component: Playlists.ViewModel,
+					children: [
+						{
+							path: "criar-playlist",
+							Component: NewPlaylist.ViewModel,
+						},
+					],
 				},
 				{
 					path: "artists",

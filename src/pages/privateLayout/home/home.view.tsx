@@ -5,6 +5,7 @@ import { Tooltip } from "@/components/ui/tooltip";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { ClockIcon } from "lucide-react";
+import { HomeSkeleton } from "./home.skeleton";
 import type { useHomeModel } from "./useHome.model";
 dayjs.extend(relativeTime);
 
@@ -31,6 +32,7 @@ export function HomeView({ last5PlayedTracksQuery }: ReturnType<typeof useHomeMo
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
+						<HomeSkeleton visible={!last5PlayedTracksQuery.isFetched} />
 						{last5PlayedTracksQuery.data?.data.items.map((item) => {
 							return (
 								<Table.Row key={item.played_at}>

@@ -1,5 +1,5 @@
 import type { QueryClient } from "@tanstack/react-query";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { Login } from "./pages/login";
 import { PrivateLayout } from "./pages/privateLayout";
 import { Artist } from "./pages/privateLayout/artist";
@@ -22,7 +22,6 @@ export const threeRoutes = (queryClient: QueryClient) =>
 				{
 					path: "home",
 					Component: Home.ViewModel,
-					loader: Home.loader(queryClient),
 				},
 				{
 					path: "playlists",
@@ -63,5 +62,9 @@ export const threeRoutes = (queryClient: QueryClient) =>
 					loader: Profile.loader(queryClient),
 				},
 			],
+		},
+		{
+			path: "*",
+			Component: () => <Navigate to="/" replace />,
 		},
 	]);

@@ -28,24 +28,8 @@ const _staticSkeleton = Array.from({ length: 5 }).map((item) => {
 	);
 });
 
-export const HomeSkeleton = () => {
-	return (
-		<ContentLayout>
-			<div className="font-bold text-3xl">Últimas faixas tocadas</div>
-			<div className="flex flex-col gap-4">
-				<Table.Root>
-					<Table.Header>
-						<Table.Row>
-							<Table.Head className="w-[35%]">Título</Table.Head>
-							<Table.Head className="w-[35%]">Álbum</Table.Head>
-							<Table.Head>
-								<ClockIcon />
-							</Table.Head>
-						</Table.Row>
-					</Table.Header>
-					<Table.Body>{_staticSkeleton}</Table.Body>
-				</Table.Root>
-			</div>
-		</ContentLayout>
-	);
+export const HomeSkeleton = ({ visible }: { visible?: boolean }) => {
+	if (!visible) return null;
+
+	return <>{_staticSkeleton}</>;
 };

@@ -1,19 +1,19 @@
-export type _ExternalUrls = {
+export type ExternalUrls = {
 	spotify: string;
 };
 
-export type _Followers = {
+export type Followers = {
 	href: string;
 	total: number;
 };
 
-export type _Image = {
+export type Image = {
 	url: string;
 	height: number;
 	width: number;
 };
 
-export type _Restrictions = {
+export type Restrictions = {
 	reason: string;
 };
 

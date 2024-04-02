@@ -9,6 +9,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
+import dayjs from "dayjs";
+
+import "dayjs/locale/pt-br";
+
+dayjs.locale("pt-br");
+
 registerSW();
 
 const MAX_RETRIES = 0;

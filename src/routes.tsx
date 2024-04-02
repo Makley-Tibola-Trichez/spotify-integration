@@ -22,6 +22,7 @@ export const threeRoutes = (queryClient: QueryClient) =>
 				{
 					path: "home",
 					Component: Home.ViewModel,
+					loader: Home.loader(queryClient),
 				},
 				{
 					path: "playlists",

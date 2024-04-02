@@ -1,4 +1,4 @@
-import type { SpotifyListParams, _ExternalUrls, _Followers, _Image } from "./spotifyService.types";
+import type { ExternalUrls, Followers, Image, SpotifyListParams } from "./spotifyService.types";
 
 export type ListUserPlaylistsResponse = {
 	href: string;
@@ -13,10 +13,10 @@ export type ListUserPlaylistsResponse = {
 export type ItemListUserPLaylistsResponse = {
 	collaborative: boolean;
 	description: string;
-	external_urls: _ExternalUrls;
+	external_urls: ExternalUrls;
 	href: string;
 	id: string;
-	images: _Image[] | null;
+	images: Image[] | null;
 	name: string;
 	owner: _Owner;
 	public: boolean;
@@ -27,8 +27,8 @@ export type ItemListUserPLaylistsResponse = {
 };
 
 type _Owner = {
-	external_urls: _ExternalUrls;
-	followers: _Followers;
+	external_urls: ExternalUrls;
+	followers: Followers;
 	href: string;
 	id: string;
 	type: string;

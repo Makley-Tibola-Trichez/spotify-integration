@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { CreatePlaylistBody } from "./types/createPlaylist.types";
 import type { GetArtistResponse } from "./types/getArtist.types";
+import type { GetLast5PlayedTracksResponse } from "./types/getLast5PlayedTracks.types";
 import type { GetUserProfileResponse } from "./types/getUserProfile.types";
 import type { ListArtistAlbumsParams, ListArtistAlbumsResponse } from "./types/listArtistAlbums.types";
 import type { ListUserPlaylistsParams, ListUserPlaylistsResponse } from "./types/listUserPlaylists.types";
@@ -23,4 +24,7 @@ export const SpotifyService = {
 	createPlaylist: (userId: string, body: CreatePlaylistBody) => axiosSpotifyV1.post(`/users/${userId}/playlists`, body),
 
 	getUserProfile: () => axiosSpotifyV1.get<GetUserProfileResponse>("/me"),
+
+	getLast5PlayedTracks: () =>
+		axiosSpotifyV1.get<GetLast5PlayedTracksResponse>("/me/player/recently-played", { params: { limit: 5 } }),
 };

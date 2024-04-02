@@ -21,13 +21,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3.0.0
+        with:
+          version: latest
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
       - name: ♻️ Install dependencies
-        run: npm i -g pnpm && pnpm i && pnpm cypress install
+        run: pnpm install && pnpm cypress install
 
       - name: 📇Validate
         run: pnpm run-p lint test:ci

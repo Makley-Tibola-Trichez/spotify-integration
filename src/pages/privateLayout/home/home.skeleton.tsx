@@ -14,15 +14,11 @@ const _staticSkeleton = Array.from({ length: 5 }).map((item) => {
 				</div>
 			</Table.Cell>
 
-			<Table.Cell>
-				<div className="text-sm">
-					<Skeleton className="h-5 w-20" />
-				</div>
+			<Table.Cell className="hidden md:table-cell">
+				<Skeleton className="h-5 w-20" />
 			</Table.Cell>
 			<Table.Cell>
-				<div className="text-sm">
-					<Skeleton className="h-5 w-20" />
-				</div>
+				<Skeleton className="h-5 w-20" />
 			</Table.Cell>
 		</Table.Row>
 	);

@@ -27,7 +27,7 @@ export const SpotifyAuthService = {
 		const params: GetUserAuthorizationParams = {
 			response_type: "code",
 			client_id: SPOTIFY_CLIENT_ID,
-			scope: "user-read-private user-read-email user-top-read",
+			scope: "user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private",
 			code_challenge_method: "S256",
 			code_challenge: codeChallenge,
 			redirect_uri: redirectURI,

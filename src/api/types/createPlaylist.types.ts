@@ -1,5 +1,5 @@
 export type CreatePlaylistBody = {
 	name: string;
-	description: string;
-	public: boolean;
+	description?: string;
+	public?: boolean;
 };

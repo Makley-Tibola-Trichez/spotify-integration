@@ -21,7 +21,7 @@ export function PlaylistsView({
 				</div>
 				<PageHeader.ActionButton onClick={handleCriarPlaylist}>Criar playlist</PageHeader.ActionButton>
 			</PageHeader.Root>
-			<ScrollArea className="max-h-[calc(100dvh-12rem)]">
+			<ScrollArea className="max-h-[calc(100dvh-18rem)] md:max-h-[calc(100dvh-12rem)]">
 				<ul className="flex flex-col gap-4">
 					<NoResults
 						visible={playlistsItems.length === 0}

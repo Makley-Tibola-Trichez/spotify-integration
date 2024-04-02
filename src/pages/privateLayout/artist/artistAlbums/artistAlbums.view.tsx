@@ -10,7 +10,7 @@ export function ArtistAlbumsView({
 	bottomElementRef,
 }: ReturnType<typeof useArtistAlbumsModel>) {
 	return (
-		<ScrollArea className="max-h-[calc(100dvh-12rem)]">
+		<ScrollArea className="max-h-[calc(100dvh-15rem)] md:max-h-[calc(100dvh-12rem)]">
 			<ul className="grid gap-x-2 gap-y-4 lg:grid-cols-2">
 				<NoResults
 					visible={artistAlbumsItems.length === 0}

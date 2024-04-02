@@ -18,7 +18,7 @@ export function HomeView({ last5PlayedTracksQuery }: ReturnType<typeof useHomeMo
 					<Table.Header>
 						<Table.Row>
 							<Table.Head className="w-[35%]">Título</Table.Head>
-							<Table.Head className="w-[35%]">Álbum</Table.Head>
+							<Table.Head className="hidden w-[35%] md:visible">Álbum</Table.Head>
 							<Table.Head>
 								<Tooltip.Provider>
 									<Tooltip.Root>
@@ -49,7 +49,7 @@ export function HomeView({ last5PlayedTracksQuery }: ReturnType<typeof useHomeMo
 										</div>
 									</Table.Cell>
 
-									<Table.Cell>
+									<Table.Cell className="hidden md:visible">
 										<div className="text-sm">{item.track.album.name}</div>
 									</Table.Cell>
 									<Table.Cell>

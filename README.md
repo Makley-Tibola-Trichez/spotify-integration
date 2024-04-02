@@ -1,5 +1,3 @@
-
-
 # Requisitos
 ## Requisitos obrigatórios
 - [x] Seguimentação de commits
@@ -14,22 +12,36 @@
 
 ## Bônus
 - [ ] Testes E2E
-- [ ] Integração com Sentry
-- [ ] CI/CD
-- [ ] Responsividade (celular e tablet)
+- [x] Integração com Sentry
+- [x] CI/CD
+- [x] Responsividade (celular e tablet)
 - [ ] Qualidade de código (Sonarqube)
 - [x] PWA
 
-# TODO: Feats
-- [x] Criar tela do perfil do usuário
-- [x] Criar tela home
-- [x] Fazer envio das informações para criar playlist
-- [x] Adicionar infinite scroll nas listagens
+## Arquiteturas utilizadas
 
-# TODO: Docs
-- [x] Adicionar instruções de como rodar o projeto
-- [ ] Adicionar explicação do uso da arquitetura
-- [ ] Adicionar explicação do uso de tecnologias
+### Composition pattern + Atomic Design
+Foi utilizado a combinação de Composition pattern e Atomic Design. Ao aplicar o Atomic Design, os componentes são organizados em uma hierarquia clara. Integrando o Composition pattern, os atomos podem ser facilmente combinados para formar componentes maiores e mais complexos, resultando em uma arquitetura flexível, escalável e de fácil manutenção.
+
+### MVVM
+A arquitetura MVVM foi escolhida para o projeto, pois ela torna possível separar a lógica de negócios da interface do usuário, facilitando a manutenção e escalabilidade do aplicativo.
+
+
+## Tecnologias utilizadas
+
+1. **React**
+2. **React router dom**: utilizado para gerenciar as rotas da aplicação
+3. **React query**: utilizado para fazer as requisições para a API do spotify e manter o cache dos dados para uso offline por 24 horas
+4. **VitePWA**: utilizado para transformar o projeto em PWA
+5. **Shadcn/UI  + TailwindCSS**: utilizado para estilizar uma estilização mais rápida e responsiva
+6. **Pnpm**: utilizado como gerenciador de dependências por ter um melhor desempenho comparado a Yarn e NPM
+7. **Vitest**: utilizado para rodar os testes unitários
+8. **Sentry**: utilizado para monitorar erros na aplicação
+9. **Biomejs**: utilizado para fazer o Lint e a formatação do código
+10. **Vercel**: utilizado para fazer o deploy da aplicação
+11. **Github Actions**: utilizado para fazer o CI/CD da aplicação
+12. **Husky + Lint-staged**: utilizado para rodar o Lint e os testes antes de fazer o commit de alterações do código
+
 
 
 ## Instruções para rodar o projeto
@@ -55,13 +67,14 @@ cp .env.example .env
 ```
 É necessário adicionar o client_id do spotify no arquivo .env para poder fazer a conexão com a API do spotify
 
+Obs: na dashboard do spotify, é necessário adicionar a url `http://localhost:3000/home` como redirect_uri
+
+Caso queria utilizar o sentry, adicione o SENTRY_DSN e  SENTRY_AUTH_TOKEN no arquivo .env
+
+Obs: O sentry esta configurado para funcionar apenas em produção
+
 
 ### 4. Rode o projeto
-#### Modo de desenvolvimento
-Caso queira rodar o projeto em modo de desenvolvimento, utilize o comando: 
-```bash
-pnpm dev
-```
 
 #### Modo de produção
 Caso queira rodar o projeto em modo de produção, utilize os comandos:
@@ -70,11 +83,11 @@ pnpm build
 pnpm preview
 ```
 
+#### Modo de desenvolvimento
+Caso queira rodar o projeto em modo de desenvolvimento, utilize o comando: 
+```bash
+pnpm dev
+```
+
 ### 5. Acesse o projeto
 Acesse o projeto em `http://localhost:3000`
-
-
-## Instruções para rodar os testes
-```bash
-pnpm test
-```

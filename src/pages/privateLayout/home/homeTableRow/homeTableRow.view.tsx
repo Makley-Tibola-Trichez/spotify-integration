@@ -11,7 +11,7 @@ export const HomeTableRowView = (props: ItemLast5PlayedTracksResponse) => {
 					<Avatar.Image src={props.track.album.images[0].url} />
 					<Avatar.Fallback>{props.track.name[0]}</Avatar.Fallback>
 				</Avatar.Root>
-				<div>''
+				<div>
 					<div className="text-sm">{props.track.name}</div>
 					<div className="text-muted-foreground text-xs">
 						{props.track.artists.map((artist) => artist.name).join(", ")}
@@ -19,7 +19,7 @@ export const HomeTableRowView = (props: ItemLast5PlayedTracksResponse) => {
 				</div>
 			</Table.Cell>
 
-			<Table.Cell className="hidden md:visible">
+			<Table.Cell className="hidden md:table-cell">
 				<div className="text-sm">{props.track.album.name}</div>
 			</Table.Cell>
 			<Table.Cell>

@@ -17,8 +17,8 @@ export function HomeView({ last5PlayedTracksQuery }: ReturnType<typeof useHomeMo
 				<Table.Root>
 					<Table.Header>
 						<Table.Row>
-							<Table.Head className="w-[35%]">Título</Table.Head>
-							<Table.Head className="hidden w-[35%] md:visible">Álbum</Table.Head>
+							<Table.Head className="w-2/3 md:w-[35%]">Título</Table.Head>
+							<Table.Head className="hidden w-[35%] md:table-cell">Álbum</Table.Head>
 							<Table.Head>
 								<Tooltip.Provider>
 									<Tooltip.Root>

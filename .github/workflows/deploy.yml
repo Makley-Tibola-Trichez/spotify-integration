@@ -35,8 +35,8 @@ jobs:
       - name: ♻️ Install dependencies
         run: pnpm install && pnpm cypress install
 
-      - name: 📇Validate
-        run: lint 
+      - name: 📇Lint
+        run: pnpm run lint:ci 
 
       - name: ♾️ Unitary tests
         run: pnpm run test:ci

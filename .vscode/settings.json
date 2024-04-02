@@ -7,7 +7,6 @@
 	"editor.formatOnSave": true,
 	"editor.tabSize": 2,
 	"files.exclude": {
-		"**/.stylelintcache": true,
 		"**/.eslintcache": true,
 		"**/.nyc_output": true,
 		"**/node_modules": true
@@ -17,7 +16,6 @@
 	},
 	"git.enableCommitSigning": true,
 	"javascript.format.enable": false,
-	"stylelint.validate": ["css"],
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"[typescript]": {

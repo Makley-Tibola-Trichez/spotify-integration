@@ -11,12 +11,12 @@
 - [x] Deploy da aplicação
 
 ## Bônus
-- [ ] Testes E2E
 - [x] Integração com Sentry
 - [x] CI/CD
 - [x] Responsividade (celular e tablet)
-- [ ] Qualidade de código (Sonarqube)
 - [x] PWA
+- [ ] Testes E2E
+- [ ] Qualidade de código (Sonarqube)
 
 ## Arquiteturas utilizadas
 
@@ -91,3 +91,13 @@ pnpm dev
 
 ### 5. Acesse o projeto
 Acesse o projeto em `http://localhost:3000`
+
+
+
+### Extra: 6. PWA
+Para instalar o PWA, clique no botão de instalação que aparece no canto inferior esquerdo da tela em ambiente Desktop
+
+### 7. Acesso offline
+Para ter acesso offline, é necessário acessar o site uma vez com internet para que os dados sejam cacheados. Ou seja, para que tenha acesso a lista de albums de algum determinado artista offline, é necessário acessar a página de albums para carregá-los no cache.
+
+O cache tem validade de 24 horas, após esse tempo, é necessário acessar o site novamente com internet para que os dados sejam atualizados no cache

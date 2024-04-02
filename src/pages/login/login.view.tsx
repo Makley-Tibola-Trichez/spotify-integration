@@ -8,7 +8,7 @@ export const LoginView = withAuthInPublicRoute(() => {
 	return (
 		<div className="flex h-screen w-screen flex-col items-center justify-center gap-4">
 			<img src={SpotifyLogo} alt="Spotify logo" />
-			<span className="font-bold">Entre com a sua conta Spotify clicando no botão abaixo</span>
+			<span className="text-center font-bold">Entre com a sua conta Spotify clicando no botão abaixo</span>
 			<Button onClick={SpotifyAuthService.getUserAuthorization}>Entrar</Button>
 		</div>
 	);

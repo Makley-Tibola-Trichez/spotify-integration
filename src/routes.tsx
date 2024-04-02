@@ -1,5 +1,6 @@
 import type { QueryClient } from "@tanstack/react-query";
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import ErrorBoundary from "./components/errorBoundary/errorBoundary";
 import { Login } from "./pages/login";
 import { PrivateLayout } from "./pages/privateLayout";
 import { Artist } from "./pages/privateLayout/artist";
@@ -13,10 +14,12 @@ import { Profile } from "./pages/privateLayout/profile";
 export const threeRoutes = (queryClient: QueryClient) =>
 	createBrowserRouter([
 		{
+			ErrorBoundary: ErrorBoundary,
 			path: "/",
 			Component: Login.ViewModel,
 		},
 		{
+			ErrorBoundary: ErrorBoundary,
 			Component: PrivateLayout.ViewModel,
 			children: [
 				{

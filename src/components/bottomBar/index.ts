@@ -1,4 +1,4 @@
-import { BottomBarButton } from "./BottomBarButton";
+import { BottomBarButton } from "./bottomBarButton";
 import { BottomBarRoot } from "./bottomBarRoot";
 
 export const BottomBar = {

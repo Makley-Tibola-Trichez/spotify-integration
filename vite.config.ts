@@ -76,10 +76,9 @@ export default defineConfig(({ mode }) => {
 					]),
 			sentryVitePlugin({
 				authToken: env.SENTRY_AUTH_TOKEN,
-				org: "sbsistemas-cr",
-				project: "agronota-app",
+				org: "makley-company",
+				project: "spotify-integratino",
 				telemetry: false,
-				release: { name: "agronota-app@1.0.0" },
 				sourcemaps: {
 					assets: "./build/assets/*.js",
 					filesToDeleteAfterUpload: "./build/assets/*.js.map",

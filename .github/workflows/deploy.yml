@@ -19,12 +19,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Test:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - run: echo "${{ secrets.VERCEL_TOKEN }}"
       
       - uses: pnpm/action-setup@v3.0.0
         with:

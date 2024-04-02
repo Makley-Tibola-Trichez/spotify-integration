@@ -6,7 +6,7 @@ export type GetLast5PlayedTracksResponse = {
 	next: string;
 	cursors: Cursors;
 	total: number;
-	items: Item[];
+	items: ItemLast5PlayedTracksResponse[];
 };
 
 type Cursors = {
@@ -14,7 +14,7 @@ type Cursors = {
 	before: string;
 };
 
-type Item = {
+export type ItemLast5PlayedTracksResponse = {
 	track: Track;
 	played_at: string;
 	context: Context;

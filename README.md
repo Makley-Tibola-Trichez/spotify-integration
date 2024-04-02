@@ -1,3 +1,9 @@
+
+# Spotify integration
+Esse projeto visa utilizar a API do Spotify para exibir algumas informações sobre a conta do usuário autênticado
+
+[Para acessar o sistema click aqui](https://spotify-integration-three.vercel.app/)
+
 # Requisitos
 ## Requisitos obrigatórios
 - [x] Seguimentação de commits

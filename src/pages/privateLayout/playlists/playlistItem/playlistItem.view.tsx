@@ -1,8 +1,8 @@
-import type { ItemListUserPLaylistsResponse } from "@/api/types/listUserPlaylists.types";
+import type { ItemListUserPlaylistsResponse } from "@/api/types/listUserPlaylists.types";
 import { Avatar } from "@/components/ui/avatar";
 import { forwardRef } from "react";
 
-export const PlaylistItemView = forwardRef<HTMLLIElement, ItemListUserPLaylistsResponse>((item, ref) => {
+export const PlaylistItemView = forwardRef<HTMLLIElement, ItemListUserPlaylistsResponse>((item, ref) => {
 	return (
 		<li className="flex items-center gap-4 text-white" key={item.name} ref={ref}>
 			<Avatar.Root className="h-[72px] w-[72px] rounded">

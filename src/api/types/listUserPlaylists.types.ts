@@ -7,10 +7,10 @@ export type ListUserPlaylistsResponse = {
 	offset: number;
 	previous: string;
 	total: number;
-	items: ItemListUserPLaylistsResponse[];
+	items: ItemListUserPlaylistsResponse[];
 };
 
-export type ItemListUserPLaylistsResponse = {
+export type ItemListUserPlaylistsResponse = {
 	collaborative: boolean;
 	description: string;
 	external_urls: ExternalUrls;

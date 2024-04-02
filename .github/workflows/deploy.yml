@@ -1,8 +1,8 @@
 name: Spotify Integration CI/CD
 
 env:
-  VERCEL_ORG_ID: ${{ env.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ env.VERCEL_PROJECT_ID }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - run: echo "${{ secrets.VERCEL_TOKEN }}"
       
       - uses: pnpm/action-setup@v3.0.0
@@ -45,13 +45,13 @@ jobs:
         run: pnpm run test:ci
 
       - name: ♻️ Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: pnpm install --global vercel@latest
 
       - name: ⚓ Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: 📦 Build Project Artifacts
-        run: vercel build --prod --token=${{ env.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: 🚀 Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

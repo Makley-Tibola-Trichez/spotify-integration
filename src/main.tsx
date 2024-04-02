@@ -46,7 +46,7 @@ if (container) {
 	root.render(
 		<StrictMode>
 			<QueryClientProvider client={queryClient}>
-				<ReactQueryDevtools />
+				<ReactQueryDevtools buttonPosition="bottom-left" />
 				<App />
 			</QueryClientProvider>
 		</StrictMode>,

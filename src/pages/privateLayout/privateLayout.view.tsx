@@ -1,3 +1,4 @@
+import { BottomBar } from "@/components/bottomBar";
 import { InstallPWA } from "@/components/installPWA/installPWA";
 import { SideBar } from "@/components/sideBar";
 import { DiscIcon, HomeIcon, PlayIcon, UserIcon } from "lucide-react";
@@ -41,6 +42,24 @@ export function PrivateLayoutView() {
 					</div>
 				</div>
 				<Outlet />
+				<BottomBar.Root>
+					<BottomBar.Button to="/home">
+						<HomeIcon size="24px" />
+						Home
+					</BottomBar.Button>
+					<BottomBar.Button to="/artists">
+						<DiscIcon size="24px" />
+						Artistas
+					</BottomBar.Button>
+					<BottomBar.Button to="/playlists">
+						<PlayIcon size="24px" />
+						Playlists
+					</BottomBar.Button>
+					<BottomBar.Button to="/profile">
+						<UserIcon size="24px" />
+						Perfil
+					</BottomBar.Button>
+				</BottomBar.Root>
 			</div>
 		</>
 	);

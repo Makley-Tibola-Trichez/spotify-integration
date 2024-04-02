@@ -11,7 +11,7 @@ export default function ErrorBoundary() {
 	return (
 		<ContentLayout>
 			<div className="flex h-full flex-col items-center justify-center">
-				<img src={SVGError500} alt="Erro status 500" />
+				<img src={SVGError500} alt="Erro status 500" className="max-w-[350px]" />
 				<span className="text-center font-bold text-lg">
 					Parece que houve algum problema para atender a sua solicitação
 				</span>

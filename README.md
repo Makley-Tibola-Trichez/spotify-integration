@@ -23,8 +23,8 @@
 # TODO: Feats
 - [x] Criar tela do perfil do usuário
 - [ ] Criar tela home
-- [ ] Fazer envio das informações para criar playlist
-- [ ] Adicionar infinite scroll nas listagens
+- [x] Fazer envio das informações para criar playlist
+- [x] Adicionar infinite scroll nas listagens
 
 # TODO: Docs
 - [x] Adicionar instruções de como rodar o projeto
